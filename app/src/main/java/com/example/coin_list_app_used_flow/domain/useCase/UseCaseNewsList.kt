@@ -1,27 +1,25 @@
 package com.example.coin_list_app_used_flow.domain.useCase
 
-import com.example.coin_list_app_used_flow.domain.model.CoinData
-import com.example.coin_list_app_used_flow.domain.repository.CoinRepository
+import com.example.coin_list_app_used_flow.data.model.NewsItems
+import com.example.coin_list_app_used_flow.domain.model.NewsItem
+import com.example.coin_list_app_used_flow.domain.repository.NewsRepository
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
+import java.util.*
 import javax.inject.Inject
 
-class UseCaseNewsList @Inject constructor(private val coinRepository: CoinRepository) {
+class UseCaseNewsList @Inject constructor(private val newsRepository: NewsRepository) {
 
-    suspend fun loadCoinList() = coroutineScope {
-        val coinDataList = mutableListOf<CoinData>()
-        val coinList = async { coinRepository.loadCoinList() }
-        val coinAssetsStatus = async { coinRepository.loadAssetsStatus() }
+    suspend fun loadNewsList() = coroutineScope {
+        val newsList = mutableListOf<NewsItem>()
+        val coinNewsList = async { newsRepository.loadNews("coin").toNewsItemList() }
+        val nftNewsList = async { newsRepository.loadNews("nft").toNewsItemList()  }
 
-        val coinDataTempList = coinList.await().toCoinDataList()
-        val coinAssetsStatusDataList = coinAssetsStatus.await().toCoinAssetsStatusData()
-        for (i in coinDataTempList.indices){
-            val coinData = coinDataTempList[i].copy(deposit_status = coinAssetsStatusDataList[i].deposit_status,
-                withdrawal_status = coinAssetsStatusDataList[i].withdrawal_status)
+        newsList.addAll(coinNewsList.await())
+        newsList.addAll(nftNewsList.await())
 
-            coinDataList.add(coinData)
-        }
+        newsList.sortDescending()
 
-        coinDataList
+        newsList
     }
 }

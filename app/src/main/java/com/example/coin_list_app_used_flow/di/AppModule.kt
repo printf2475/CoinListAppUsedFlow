@@ -7,6 +7,7 @@ import com.example.coin_list_app_used_flow.data.repository.NewsRepositoryImpl
 import com.example.coin_list_app_used_flow.domain.repository.CoinRepository
 import com.example.coin_list_app_used_flow.domain.repository.NewsRepository
 import com.example.coin_list_app_used_flow.domain.useCase.UseCaseCoinList
+import com.example.coin_list_app_used_flow.domain.useCase.UseCaseNewsList
 import com.example.coin_list_app_used_flow.domain.useCase.UseCases
 import dagger.Module
 import dagger.Provides
@@ -35,9 +36,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideUseCases(coinRepository: CoinRepository): UseCases {
+    fun provideUseCases(coinRepository: CoinRepository, newsRepository: NewsRepository): UseCases {
         return UseCases(
-            loadCoinList = UseCaseCoinList(coinRepository)
+            loadCoinList = UseCaseCoinList(coinRepository),
+            loadNewsList = UseCaseNewsList(newsRepository)
+
         )
     }
 

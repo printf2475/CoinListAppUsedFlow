@@ -4,5 +4,6 @@ import javax.inject.Inject
 
 data class UseCases @Inject constructor(
     val loadCoinList: UseCaseCoinList,
+    val loadNewsList: UseCaseNewsList,
 
 )

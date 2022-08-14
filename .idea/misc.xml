@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/A/Coin_List_App_Used_flow/app/src/main/res/drawable/item_back_ground.xml" value="0.1445" />
         <entry key="..\:/Users/A/Coin_List_App_Used_flow/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/A/Coin_List_App_Used_flow/app/src/main/res/layout/coin_list_row.xml" value="0.39351851851851855" />
+        <entry key="..\:/Users/A/Coin_List_App_Used_flow/app/src/main/res/layout/coin_news_row.xml" value="0.1" />
         <entry key="..\:/Users/A/Coin_List_App_Used_flow/app/src/main/res/layout/fragment_coin_list.xml" value="0.15764705882352942" />
         <entry key="..\:/Users/A/Coin_List_App_Used_flow/app/src/main/res/layout/fragment_coin_news.xml" value="0.17760416666666667" />
         <entry key="..\:/Users/A/Coin_List_App_Used_flow/app/src/main/res/menu/main_nav_menu.xml" value="0.21979166666666666" />

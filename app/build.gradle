@@ -17,7 +17,9 @@ android {
         versionName "1.0"
 
         buildConfigField ("String", "COIN_BASE_URL", '"https://api.bithumb.com/public/"')
-        buildConfigField ("String", "NEWS_BASE_URL", '"http://release.server.com"')
+        buildConfigField ("String", "NEWS_BASE_URL", '"https://openapi.naver.com/v1/"')
+        buildConfigField ("String", "CLIENT_ID", '"SCcua2kCiZVQUy95BZZk"')
+        buildConfigField ("String", "CLIENT_SECRET", '"vXFXK7tVOj"')
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

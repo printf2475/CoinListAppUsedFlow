@@ -16,7 +16,7 @@ import javax.inject.Inject
 class UseCaseCoinList @Inject constructor(private val coinRepository: CoinRepository) {
 
 
-    suspend fun loadCoinList() = flow {
+    suspend fun loadCoinList(): Flow<MutableList<CoinData>> {
         val coinDataList = mutableListOf<CoinData>()
 
         //코인 이름, 코인 가격
@@ -36,7 +36,7 @@ class UseCaseCoinList @Inject constructor(private val coinRepository: CoinReposi
         }.flowOn(Dispatchers.IO)
 
 
-        coinDataTempList.zip(coinAssetsStatus) { coindata, coinAssetStateList ->
+        return coinDataTempList.zip(coinAssetsStatus) { coindata, coinAssetStateList ->
             for (i in coindata.indices) {
                 coinAssetStateList.forEach {
                     if (it.coinName == coindata[i].coinName) {
@@ -50,8 +50,8 @@ class UseCaseCoinList @Inject constructor(private val coinRepository: CoinReposi
             }
 
             coinDataList
-        }.collect{
-            emit(it)
         }
+
+
     }
 }

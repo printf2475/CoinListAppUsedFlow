@@ -43,11 +43,6 @@ class CoinListFragment : Fragment() {
         mainViewModel.coinList.observe(viewLifecycleOwner){
             adapter.setList(it)
         }
-
-        val animator: ItemAnimator = binding.rvCoin.itemAnimator!!
-        if (animator is SimpleItemAnimator) {
-            animator.supportsChangeAnimations = false
-        }
     }
 
     companion object {
