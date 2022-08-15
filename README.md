@@ -28,11 +28,11 @@
  <br>
 [COIN lIST USECASE]
 <br><br>
-<img src="https://user-images.githubusercontent.com/80373743/184586776-29b41ff3-46d3-4616-b445-c176b742e4ab.png" width="600" height="800"/>
+<img src="https://user-images.githubusercontent.com/80373743/184589608-ca05493e-8642-4772-9905-913f904f4602.png" width="600" height="800"/>
 
 
 <br>
 [NEWS LIST USECASE]
 <br><br>
-<img src="https://user-images.githubusercontent.com/80373743/184586814-7722ff7b-219c-4240-b9a3-2eab72f505ea.png" width="600" height="400"/>
+<img src="https://user-images.githubusercontent.com/80373743/184589612-c4e02f65-1a4b-4ec1-a07c-d5f0c35ae97b.png" width="600" height="400"/>
 
