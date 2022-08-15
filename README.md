@@ -24,3 +24,15 @@
  - Coroutine
  - Flow
  - MVVM
+ 
+ <br>
+[COIN lIST DOMAIN]
+<br><br>
+<img src="https://user-images.githubusercontent.com/80373743/184586776-29b41ff3-46d3-4616-b445-c176b742e4ab.png" width="600" height="800"/>
+
+
+<br>
+[NEWS LIST DOMAIN]
+<br><br>
+<img src="https://user-images.githubusercontent.com/80373743/184586814-7722ff7b-219c-4240-b9a3-2eab72f505ea.png" width="600" height="400"/>
+
