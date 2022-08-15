@@ -21,8 +21,6 @@ class MainViewModel @Inject constructor(
     private val useCases: UseCases
     ) : ViewModel() {
 
-
-
     private val _coinList = MutableLiveData<List<CoinData>>()
     val coinList : LiveData<List<CoinData>> get() = _coinList
 
@@ -33,7 +31,7 @@ class MainViewModel @Inject constructor(
     private val _mainEvent = MutableLiveData<MainEvent>()
     val mainEvent : LiveData<MainEvent> get() = _mainEvent
 
-
+    //코루틴 안에서 Exception이 발생하면 coroutineExceptionHandler에서 처리할수있음
     private var  coroutineExceptionHandler : CoroutineExceptionHandler = CoroutineExceptionHandler { _, throwable ->
         when(throwable){
             is Exception -> {
@@ -52,7 +50,7 @@ class MainViewModel @Inject constructor(
 
 
 
-    fun loadCoinList() = CoroutineScope(Dispatchers.IO+coroutineExceptionHandler).launch {
+    fun loadCoinList() = viewModelScope.launch(coroutineExceptionHandler) {
        useCases.loadCoinList.loadCoinList().collect{
             _coinList.postValue(it)
         }

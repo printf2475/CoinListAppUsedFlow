@@ -38,6 +38,7 @@ class CoinRecyclerAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun setList(list :List<CoinData>) {
         list?.let {
+            // 변경된 값만 다시 그리기위해 DiffUtil 추가
             val diffCallback = DiffUtilCallback(this.itemList, list)
             val diffResult = DiffUtil.calculateDiff(diffCallback)
 

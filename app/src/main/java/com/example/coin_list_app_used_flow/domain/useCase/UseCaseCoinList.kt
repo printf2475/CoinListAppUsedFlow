@@ -19,7 +19,7 @@ class UseCaseCoinList @Inject constructor(private val coinRepository: CoinReposi
     suspend fun loadCoinList(): Flow<MutableList<CoinData>> {
         val coinDataList = mutableListOf<CoinData>()
 
-        //코인 이름, 코인 가격
+        //코인 이름, 코인 가격을 10초마다 불러옴
         val coinDataTempList = flow {
             while (true) {
                 emit(coinRepository.loadCoinList().toCoinDataList())
@@ -27,7 +27,7 @@ class UseCaseCoinList @Inject constructor(private val coinRepository: CoinReposi
             }
         }.flowOn(Dispatchers.IO)
 
-        //코인 거래가능 현황
+        //코인 거래가능 현황을 10초 마다 불러옴
         val coinAssetsStatus = flow {
             while (true) {
                 emit(coinRepository.loadAssetsStatus().toCoinAssetsStatusData())
@@ -35,7 +35,7 @@ class UseCaseCoinList @Inject constructor(private val coinRepository: CoinReposi
             }
         }.flowOn(Dispatchers.IO)
 
-
+        //위에 2가지 flow를 병합
         return coinDataTempList.zip(coinAssetsStatus) { coindata, coinAssetStateList ->
             for (i in coindata.indices) {
                 coinAssetStateList.forEach {

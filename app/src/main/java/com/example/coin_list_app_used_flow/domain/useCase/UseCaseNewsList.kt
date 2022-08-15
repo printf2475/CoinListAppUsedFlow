@@ -13,12 +13,16 @@ class UseCaseNewsList @Inject constructor(private val newsRepository: NewsReposi
 
     suspend fun loadNewsList() = coroutineScope {
         val newsList = mutableListOf<NewsItem>()
+
+        //네이버 뉴스 "coin" 검색 기록 리스트
         val coinNewsList = async { newsRepository.loadNews(Define.AppData.COIN).toNewsItemList() }
+        //네이버 뉴스 "nft" 검색 기록 리스트
         val nftNewsList = async { newsRepository.loadNews(Define.AppData.NFT).toNewsItemList()  }
 
         newsList.addAll(coinNewsList.await())
         newsList.addAll(nftNewsList.await())
 
+        // 뉴스 업로드 날자순으로 정렬
         newsList.sortDescending()
 
         newsList
