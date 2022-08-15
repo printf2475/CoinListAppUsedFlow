@@ -6,12 +6,11 @@ import retrofit2.http.*
 
 interface CoinRestApi {
 
-    @FormUrlEncoded
-    @POST("ticker/ALL_KRW")
-    suspend fun loadCoinList(@Field("asd") empty : String = ""): CoinList
 
-    @FormUrlEncoded
-    @POST("assetsstatus/ALL")
-    suspend fun loadAssetsStatusList(@Field("asd") empty : String = ""): CoinAssetsStatusList
+    @GET("ticker/ALL_KRW")
+    suspend fun loadCoinList(): CoinList
+
+    @GET("assetsstatus/ALL")
+    suspend fun loadAssetsStatusList(): CoinAssetsStatusList
 
 }

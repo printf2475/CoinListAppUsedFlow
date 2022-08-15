@@ -8,4 +8,14 @@ interface Define {
             const val News : String = "news"
         }
     }
+
+
+    interface AppData{
+        companion object {
+            const val COIN : String = "coin"
+            const val NFT : String = "nft"
+            const val DATE : String = "date"
+
+        }
+    }
 }

@@ -4,6 +4,7 @@ import com.example.coin_list_app_used_flow.BuildConfig
 import com.example.coin_list_app_used_flow.data.model.CoinAssetsStatusList
 import com.example.coin_list_app_used_flow.data.model.CoinList
 import com.example.coin_list_app_used_flow.data.model.ResultSearchNews
+import com.example.coin_list_app_used_flow.util.Define
 import retrofit2.http.*
 
 
@@ -13,7 +14,7 @@ interface NewsRestApi {
         @Header("X-Naver-Client-Id") clientId: String? = BuildConfig.CLIENT_ID,
         @Header("X-Naver-Client-Secret") clientSecret: String? = BuildConfig.CLIENT_SECRET,
         @Query("query", encoded = true) searchString : String,
-        @Query("sort") sort : String?= "date",
+        @Query("sort") sort : String?= Define.AppData.DATE,
         @Query("display") display : Int?= 30
     ): ResultSearchNews
 

@@ -51,7 +51,5 @@ class UseCaseCoinList @Inject constructor(private val coinRepository: CoinReposi
 
             coinDataList
         }
-
-
     }
 }
