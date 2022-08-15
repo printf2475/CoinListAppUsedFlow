@@ -28,7 +28,7 @@
  <br>
 [COIN lIST USECASE]
 <br><br>
-<img src="https://user-images.githubusercontent.com/80373743/184589608-ca05493e-8642-4772-9905-913f904f4602.png" width="600" height="800"/>
+<img src="https://user-images.githubusercontent.com/80373743/184589956-a4498cda-58dd-4024-89b9-4dcb496d3a25.png" width="600" height="800"/>
 
 
 <br>
