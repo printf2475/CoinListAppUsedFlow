@@ -24,7 +24,7 @@
  - Coroutine
  - Flow
  - MVVM
- - Retrifot
+ - Retrofit
  
  <br>
 [COIN lIST USECASE]
